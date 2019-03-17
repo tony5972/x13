@@ -1,0 +1,34 @@
+stud=# create table hosp(hno int primary key,hname varchar(20),hcity varchar(20));
+CREATE TABLE
+                              
+stud=# create table doct(dno int primary key,dname varchar(20),dadd varchar(20),dcity varchar(20),darea varchar(20),hno1 int references hosp(hno));
+CREATE TABLE
+
+stud=# insert into hosp values(101,'panchavati','nashik');
+INSERT 0 1
+stud=# insert into hosp values(102,'sanjivani','nashik');
+INSERT 0 1
+stud=# insert into hosp values(103,'ganesh','mumbai');
+INSERT 0 1
+stud=# insert into doct values(1,'abc','m.g.road','nashik','gangapur road',101); 
+INSERT 0 1
+stud=# insert into doct values(2,'pqr','shivaji nagar','nashik','nashik road',103);
+INSERT 0 1
+stud=# select * from doct;
+ dno | dname |     dadd      | dcity  |     darea     | hno1 
+-----+-------+---------------+--------+---------------+------
+   1 | abc   | m.g.road      | nashik | gangapur road |  101
+   2 | pqr   | shivaji nagar | nashik | nashik road   |  103
+(2 rows)
+
+stud=# select * from hosp;
+ hno |   hname    | hcity  
+-----+------------+--------
+ 101 | panchavati | nashik
+ 102 | sanjivani  | nashik
+ 103 | ganesh     | mumbai
+(3 rows)
+
+stud=# insert into doct values(3,'xyz','shivaji nagar','nashik','nashik road',103);
+INSERT 0 1
+
